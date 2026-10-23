@@ -23,13 +23,14 @@ Enforces server-authoritative logic, database persistency, and anti-cheat valida
 
 ### Shared Assets & Data (`src/shared`)
 Central repository for assets, configurations, and cross-boundary network channels:
-- **modules/FightingStyle:** The core modular framework used to easily write and insert new martial arts styles
+- **modules/FightingStyle:** The core object-oriented framework that manages player combat states, weapon combo indexing, and procedural motor-decoupling for server side character ragdolling
 - **modules/StylesData & KeybindsData:** Configuration files to tweak combo timings, damage scales, and customizable user keybind structures
 - **vfx/** Includes standalone Roblox model assets (`.rbxm`) for fast runtime rendering:
+- NOTE: I DID NOT CREATE ANY OF THE VFX
   - `hit.rbxm` (Impact burst effects)
   - `block.rbxm` (Shield spark effects)
   - `blockBreak.rbxm` (Posture break indicators)
-  - `dizzy.rbxm` (Stun state status indicators)
+  - `dizzy.rbxm` (Star moving indicators)
 
 ## Getting Started
 
@@ -45,5 +46,8 @@ Open the compiled place file in Roblox Studio and initialize the live sync serve
 rojo serve
 ```
 
-## 📜 License
+## OOP Ragdoll Engine
+The `FightingStyle` module handles a procedural `BallSocketConstraint` bone decoupling sequence over the server network pipeline. It overrides standard internal humanoid active state values, automatically maps custom limits sourced from `StylesData`, drops systemic dizziness indicators via `DizzyVFX`, and cleanly manages physics cleanup handling upon token recovery bounds.
+
+## License
 This combat framework is distributed under the MIT License.
